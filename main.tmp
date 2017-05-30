@@ -1,0 +1,77 @@
+# The baseline account configuration for the reference architecture
+# CONFIRM: all resources managed by terraform are tagged as such to assit in diagnosing errors.
+
+module "vpc-management" {
+  source = "mod_context_tmp"
+
+  name = "${var.management-vpc-name}"
+  cidr = "${var.management-cidr}"
+  azs = "${var.azs}"
+
+  public_kube_subnets = "${var.management-public-kube-subnets}"
+  public_alt_subnets = "${var.management-public-alt-subnets}"
+
+  private_kube_subnets = "${var.management-private-kube-subnets}"
+  private_alt_subnets = "${var.management-private-alt-subnets}"
+
+  orchestration_kube_subnets = "${var.management-orchestration-kube-subnets}"
+  orchestration_alt_subnets = "${var.management-orchestration-alt-subnets}"
+
+  enable_dns_hostnames = true
+  enable_dns_support = true
+
+  tags {
+    "terraform" = "true"
+    "environment" = "${terraform.env}"
+  }
+}
+
+module "vpc-platform" {
+  source = "mod_context_tmp"
+
+  name = "${var.platform-vpc-name}"
+  cidr = "${var.platform-cidr}"
+  azs = "${var.azs}"
+
+  public_kube_subnets = "${var.platform-public-kube-subnets}"
+  public_alt_subnets = "${var.platform-public-alt-subnets}"
+
+  private_kube_subnets = "${var.platform-private-kube-subnets}"
+  private_alt_subnets = "${var.platform-private-alt-subnets}"
+
+  orchestration_kube_subnets = "${var.platform-orchestration-kube-subnets}"
+  orchestration_alt_subnets = "${var.platform-orchestration-alt-subnets}"
+
+  enable_dns_hostnames = true
+  enable_dns_support = true
+
+  tags {
+    "terraform" = "true"
+    "environment" = "${terraform.env}"
+  }
+}
+
+module "vpc-ephemeral" {
+  source = "mod_context_tmp"
+
+  name = "${var.ephemeral-vpc-name}"
+  cidr = "${var.ephemeral-cidr}"
+  azs = "${var.azs}"
+
+  public_kube_subnets = "${var.ephemeral-public-kube-subnets}"
+  public_alt_subnets = "${var.ephemeral-public-alt-subnets}"
+
+  private_kube_subnets = "${var.ephemeral-private-kube-subnets}"
+  private_alt_subnets = "${var.ephemeral-private-alt-subnets}"
+
+  orchestration_kube_subnets = "${var.ephemeral-orchestration-kube-subnets}"
+  orchestration_alt_subnets = "${var.ephemeral-orchestration-alt-subnets}"
+
+  enable_dns_hostnames = true
+  enable_dns_support = true
+
+  tags {
+    "terraform" = "true"
+    "environment" = "${terraform.env}"
+  }
+}
