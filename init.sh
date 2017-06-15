@@ -1,3 +1,4 @@
 #!/usr/bin/env bash
-echo $AWS_REGION
-echo $profile
+
+terraform init -var-file=./$ENVIRONMENT.tfvars
+terraform env new $ENVIRONMENT

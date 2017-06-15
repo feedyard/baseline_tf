@@ -4,8 +4,7 @@ from invoke import task
 
 @task
 def init(ctx):
-    ctx.run("echo $ENVIRONMENT", pty=True)
-    ctx.run("echo $AWS_PROFILE", pty=True)
+    print('Hello, World!')
     # cmd = "terraform init -var-file=./{}.tfvars".format(environment)
     # print(cmd)
     # ctx.run(cmd, pty=True)
