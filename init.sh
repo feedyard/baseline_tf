@@ -2,4 +2,4 @@
 
 echo "attempting to init with $ENVIRONMENT.tfvars"
 terraform init -var-file=./$ENVIRONMENT.tfvars
-terraform env new $ENVIRONMENT
+terraform env select $ENVIRONMENT
