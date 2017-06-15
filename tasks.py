@@ -4,8 +4,12 @@ from invoke import task
 
 @task
 def init(ctx, environment):
-    ctx.run("terraform init -var-file=./{}.tfvars".format(environment), pty=True)
-    ctx.run("terraform env new {}".format(environment), pty=True)
+    print(environment)
+    cmd = "terraform init -var-file=./{}.tfvars".format(environment)
+    print(cmd)
+    ctx.run(cmd, pty=True)
+    cmd = "terraform env new {}".format(environment)
+    ctx.run(cmd, pty=True)
 
 # @task
 # def test(ctx):
