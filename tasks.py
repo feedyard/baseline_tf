@@ -3,8 +3,7 @@ from invoke import task
 #import os
 
 @task
-def init(ctx, environment):
-    print('env.environment as param = '.format(environment))
+def init(ctx):
     ctx.run("echo $ENVIRONMENT", pty=True)
     ctx.run("echo $AWS_PROFILE", pty=True)
     # cmd = "terraform init -var-file=./{}.tfvars".format(environment)
