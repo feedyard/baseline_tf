@@ -4,3 +4,4 @@ Gemfile.lock
 .terraform
 terraform.tfstate.d
 *.env
+vendor/
