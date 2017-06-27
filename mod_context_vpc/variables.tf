@@ -33,8 +33,8 @@ variable "orchestration_alt_subnets" {
 }
 
 variable "enable_nat_gateway" {
-  description = "true - to provision NAT Gateways for each private network"
-  default     = "true"
+  description = "should be true to provision NAT Gateways for each private network"
+  default     = false
 }
 
 variable "enable_dns_hostnames" {
@@ -53,7 +53,7 @@ variable "azs" {
 }
 
 variable "map_public_ip_on_launch" {
-  description = "should be true if you do  want to auto-assign public IP on launch"
+  description = "should be true if you do want to auto-assign public IP on launch"
   default     = false
 }
 
